@@ -3,7 +3,9 @@ export interface Classroom {
  code: string;
  building: string;
  capacity: number;
+ floor: number;
  status: boolean;    
+
 }
 
 export type CreateClassroom = Omit<Classroom, 'id'>;
