@@ -1,6 +1,8 @@
 import { Router } from "express";
 import { CourseRoutes } from "./modules/course/course.route";
 import { StudentRoutes } from "./modules/student/student.routes";
+import { ProfessorRoutes } from "./modules/professor/professor.routes";
+import { ClassroomRoutes } from "./modules/classroom/classroom.routes";
 
 export class AppRoutes {
 
@@ -11,6 +13,9 @@ export class AppRoutes {
     // Definir rutas
     apiRouter.use("/students", StudentRoutes.routes);
     apiRouter.use("/courses", CourseRoutes.routes);
+     apiRouter.use("/professors", ProfessorRoutes.routes);
+    apiRouter.use("/classrooms", ClassroomRoutes.routes);
+
 
     router.use("/api", apiRouter);
 
