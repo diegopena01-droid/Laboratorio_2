@@ -1,0 +1,6 @@
+<div class="d-flex justify-content-end" >
+    <app-button [config]="createButtonConfig" (onClick)="createProfessor()" />
+</div>
+<div class="mt-3">
+    <app-table-professors [professors]="professors" (onClickActions)="tableEvents($event)" />
+</div>
