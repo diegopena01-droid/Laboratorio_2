@@ -11,5 +11,7 @@ import { NavbarItem } from './modules/shared/interfaces/navbar';
 export class App {
   navbarItems: NavbarItem[] = [
     { title: 'Students', url: '/students' },
+    { title: 'Professors', url: '/professors' },
+    { title: 'Classrooms', url: '/classrooms' },
   ];
 }
