@@ -1,0 +1,89 @@
+<app-back />
+
+<div class="container-fluid py-4">
+
+    <div class="mb-4">
+        <h3 class="fw-bold mb-1">Registrar salón</h3>
+        <p class="text-muted mb-0">
+            Completa la información para registrar un nuevo salón.
+        </p>
+    </div>
+
+    <div class="card border">
+        <div class="card-header bg-white py-3">
+            <h5 class="mb-0">
+                <i class="bi bi-door-open me-2"></i>
+                Información del salón
+            </h5>
+        </div>
+
+        <div class="card-body">
+
+            <form [formGroup]="classroomForm" (ngSubmit)="createClassroom()">
+
+                <div class="row g-3">
+
+                    <div class="col-md-6">
+                        <label for="code" class="form-label">Código *</label>
+                        <input type="text" id="code" class="form-control" formControlName="code"
+                            placeholder="Ej: A-101" maxlength="20">
+                        @if (classroomForm.get('code')?.touched && classroomForm.get('code')?.invalid) {
+                        <small class="text-danger">El código es obligatorio (máximo 20 caracteres).</small>
+                        }
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="building" class="form-label">Edificio *</label>
+                        <input type="text" id="building" class="form-control" formControlName="building"
+                            placeholder="Ingrese el edificio" maxlength="50">
+                        @if (classroomForm.get('building')?.touched && classroomForm.get('building')?.invalid) {
+                        <small class="text-danger">El edificio es obligatorio (máximo 50 caracteres).</small>
+                        }
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="capacity" class="form-label">Capacidad *</label>
+                        <input type="number" id="capacity" class="form-control" formControlName="capacity"
+                            placeholder="Entre 5 y 200" min="5" max="200">
+                        @if (classroomForm.get('capacity')?.touched && classroomForm.get('capacity')?.invalid) {
+                        <small class="text-danger">La capacidad debe estar entre 5 y 200.</small>
+                        }
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="floor" class="form-label">Piso *</label>
+                        <select id="floor" class="form-select" formControlName="floor">
+                            <option value="">Seleccione un piso</option>
+                            @for (floor of floors; track floor) {
+                            <option [value]="floor">Piso {{ floor }}</option>
+                            }
+                        </select>
+                        @if (classroomForm.get('floor')?.touched && classroomForm.get('floor')?.invalid) {
+                        <small class="text-danger">Selecciona un piso entre 1 y 10.</small>
+                        }
+                    </div>
+
+                    <div class="col-12">
+                        <div class="form-check form-switch mt-2">
+                            <input class="form-check-input" type="checkbox" id="status" formControlName="status">
+                            <label class="form-check-label" for="status">Salón activo</label>
+                        </div>
+                    </div>
+
+                </div>
+
+                <hr class="my-4">
+
+                <div class="d-flex justify-content-end gap-2">
+                    <button type="submit" class="btn btn-primary" [disabled]="classroomForm.invalid">
+                        <i class="bi bi-save me-2"></i>
+                        Registrar salón
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+</div>
