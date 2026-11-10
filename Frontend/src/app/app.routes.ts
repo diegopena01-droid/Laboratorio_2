@@ -37,7 +37,7 @@ export const routes: Routes = [
     },
 
      { 
-        path: 'cclassrooms', 
+        path: 'classrooms', 
         children: [
             { path: 'list', component: ListClassrooms },
             { path: 'create', component: CreateClassroom },
